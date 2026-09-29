@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razorpay: Complete Strategic Industry & Competitive Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;display:flex;height:100vh;background:#f1f5f9;color:#334155;overflow:hidden}
+
+        /* ---- SIDEBAR ---- */
+        #sidebar{width:300px;min-width:300px;background:linear-gradient(180deg,#0f172a 0%,#1e293b 100%);color:#f8fafc;padding:28px 16px;display:flex;flex-direction:column;box-shadow:3px 0 15px rgba(0,0,0,.15);z-index:10;overflow-y:auto}
+        #sidebar::-webkit-scrollbar{width:4px}
+        #sidebar::-webkit-scrollbar-thumb{background:#475569;border-radius:4px}
+        .logo{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+        .logo h2{color:#38bdf8;font-size:1.15rem;text-transform:uppercase;letter-spacing:1.5px}
+        .logo-dot{width:10px;height:10px;background:#38bdf8;border-radius:50%;box-shadow:0 0 8px #38bdf8}
+        .sidebar-sub{color:#64748b;font-size:.78rem;margin-bottom:28px;padding-left:20px}
+        .nav-section{color:#475569;font-size:.7rem;text-transform:uppercase;letter-spacing:2px;margin:22px 0 6px 12px;font-weight:700}
+        .nav-item{padding:11px 16px;margin-bottom:3px;cursor:pointer;border-radius:8px;font-weight:500;font-size:.88rem;transition:all .2s;border:1px solid transparent;color:#cbd5e1}
+        .nav-item:hover{background:#1e293b;border-color:#334155;color:#f8fafc}
+        .nav-item.active{background:#38bdf8;color:#0f172a;font-weight:700;box-shadow:0 4px 12px rgba(56,189,248,.35);border-color:transparent}
+
+        /* ---- MAIN ---- */
+        #content{flex-grow:1;padding:30px 45px;overflow-y:auto}
+        #content::-webkit-scrollbar{width:6px}
+        #content::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:4px}
+        .page{display:none;background:#fff;padding:42px 48px;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,.06);max-width:1250px;margin:0 auto 30px;animation:fadeIn .35s ease}
+        .page.active{display:block}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+        /* ---- TYPOGRAPHY ---- */
+        h1{color:#0f172a;border-bottom:3px solid #e2e8f0;padding-bottom:14px;font-size:1.9rem;margin-bottom:8px}
+        h1 small{font-size:.85rem;color:#64748b;font-weight:400;display:block;margin-top:4px}
+        h2.st{color:#0284c7;margin-top:32px;font-size:1.3rem;border-left:4px solid #0284c7;padding-left:12px}
+        h3.sst{color:#334155;margin-top:22px;font-size:1.08rem}
+        p,li{line-height:1.72;font-size:.97rem;color:#475569}
+        strong{color:#1e293b}
+        ul,ol{padding-left:22px}
+        li{margin-bottom:6px}
+
+        /* ---- KPI ---- */
+        .kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:22px 0}
+        .kpi{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:18px 14px;border-radius:10px;text-align:center}
+        .kpi .v{font-size:1.55rem;font-weight:800;color:#38bdf8}
+        .kpi .l{font-size:.7rem;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+        /* ---- CHARTS ---- */
+        .chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:22px 0}
+        .chart-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:18px;height:330px}
+        .chart-box-wide{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:18px;height:370px;margin:22px 0}
+
+        /* ---- TABLES ---- */
+        table{width:100%;border-collapse:collapse;margin:18px 0;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.03);font-size:.88rem}
+        th,td{border:1px solid #e2e8f0;padding:10px 13px;text-align:left}
+        th{background:#f1f5f9;color:#0f172a;font-weight:700;text-transform:uppercase;font-size:.74rem;letter-spacing:.5px}
+        tr:nth-child(even){background:#f8fafc}
+        tr:hover{background:#f1f5f9}
+        .dh th{background:#0f172a;color:#fff}
+        .cc{font-weight:700;background:#fff !important;vertical-align:middle}
+
+        /* ---- CARDS ---- */
+        .tr{color:#dc2626;font-weight:600}.tg{color:#16a34a;font-weight:600}.tb{color:#2563eb;font-weight:600}.ta{color:#d97706;font-weight:600}
+        .mc{background:#f0f9ff;border-left:5px solid #0ea5e9;padding:18px 20px;margin:18px 0;border-radius:0 8px 8px 0}
+        .mc h4{margin:0 0 6px;color:#0369a1;font-size:1rem}
+        .mc-g{background:#ecfdf5;border-left:5px solid #10b981;padding:18px 20px;margin:18px 0;border-radius:0 8px 8px 0}
+        .mc-g h4{margin:0 0 6px;color:#047857;font-size:1rem}
+        .mc-r{background:#fef2f2;border-left:5px solid #ef4444;padding:18px 20px;margin:18px 0;border-radius:0 8px 8px 0}
+        .mc-r h4{margin:0 0 6px;color:#b91c1c;font-size:1rem}
+        .mc-a{background:#fffbeb;border-left:5px solid #f59e0b;padding:18px 20px;margin:18px 0;border-radius:0 8px 8px 0}
+        .mc-a h4{margin:0 0 6px;color:#92400e;font-size:1rem}
+        .moat{background:#f8fafc;border:1px solid #cbd5e1;padding:20px 22px;border-radius:10px;margin-bottom:16px}
+        .moat h3{margin:0 0 8px;color:#0f172a;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+        .badge{padding:4px 11px;border-radius:20px;font-size:.78rem;font-weight:600}
+        .bg{background:#dcfce7;color:#166534}.br{background:#fee2e2;color:#991b1b}.bb{background:#e0f2fe;color:#075985}.ba{background:#fef3c7;color:#92400e}.bx{background:#e2e8f0;color:#475569}
+        .src{background:#fffbeb;border:1px solid #fde68a;padding:10px 14px;border-radius:8px;font-size:.82rem;color:#92400e;margin:14px 0}
+        hr.div{border:none;border-top:2px solid #e2e8f0;margin:28px 0}
+        .flex-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    </style>
+</head>
+<body>
+
+<div id="sidebar">
+    <div class="logo"><div class="logo-dot"></div><h2>Razorpay</h2></div>
+    <div class="sidebar-sub">Strategic Consulting Report — Sept 2026</div>
+
+    <div class="nav-section">Data & Validation</div>
+    <div class="nav-item active" onclick="go('p0',this)">Executive Dashboard</div>
+    <div class="nav-item" onclick="go('p1',this)">Detailed P&L Breakdown</div>
+    <div class="nav-item" onclick="go('p1b',this)">Product & Classification Data</div>
+
+    <div class="nav-section">Industry Analysis</div>
+    <div class="nav-item" onclick="go('p2',this)">Step 1 — Industry Definition</div>
+    <div class="nav-item" onclick="go('p3',this)">Step 2 — Major Players & Share</div>
+    <div class="nav-item" onclick="go('p4',this)">Step 3 — Industry Profitability</div>
+    <div class="nav-item" onclick="go('p5',this)">Step 4 — Five Forces</div>
+
+    <div class="nav-section">Strategic Analysis</div>
+    <div class="nav-item" onclick="go('p6',this)">Competitor Moats & Positioning</div>
+    <div class="nav-item" onclick="go('p7',this)">Razorpay Strategy & SCA</div>
+    <div class="nav-item" onclick="go('p8',this)">Recommendation & Projections</div>
+</div>
+
+<div id="content">
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 0 — EXECUTIVE DASHBOARD                                       -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="p0" class="page active">
+<h1>Executive Financial Dashboard <small>All data sourced from CMIE Prowess statutory MCA filings. Revenue in ₹ Crore.</small></h1>
+
+<div class="kpi-row">
+    <div class="kpi"><div class="v">$482B</div><div class="l">India Digi-Pay Market '25</div></div>
+    <div class="kpi"><div class="v">228 Bn</div><div class="l">UPI Txns (CY2025)</div></div>
+    <div class="kpi"><div class="v">12M+</div><div class="l">Razorpay Merchants</div></div>
+    <div class="kpi"><div class="v">$180B</div><div class="l">Razorpay Annl. TPV</div></div>
+    <div class="kpi"><div class="v">0.4%</div><div class="l">New UPI MDR (Oct '26)</div></div>
+</div>
+
+<div class="chart-grid">
+    <div class="chart-box"><canvas id="cPie"></canvas></div>
+    <div class="chart-box"><canvas id="cRev"></canvas></div>
+    <div class="chart-box"><canvas id="cMar"></canvas></div>
+    <div class="chart-box"><canvas id="cPAT"></canvas></div>
+</div>
+
+<h2 class="st">Master Financial Data — All Companies, All Years (₹ Crore)</h2>
+<table class="dh">
+<thead><tr><th>Company</th><th>FY</th><th>Total Income</th><th>Total Expenses</th><th>Op. Margin</th><th>Employee Cost</th><th>PAT</th><th>PAT Margin</th></tr></thead>
+<tbody>
+<tr><td rowspan="4" class="cc">Razorpay</td><td>FY22</td><td>1,485.67</td><td>1,478.29</td><td class="tg">+0.50%</td><td>380.64</td><td class="tg">7.38</td><td class="tg">0.50%</td></tr>
+<tr><td>FY23</td><td>2,281.38</td><td>2,270.92</td><td class="tg">+0.46%</td><td>628.19</td><td class="tg">10.46</td><td class="tg">0.46%</td></tr>
+<tr><td>FY24</td><td>2,239.90</td><td>3,551.71</td><td class="tr">-58.57%</td><td>260.89</td><td class="tr">-1,311.81</td><td class="tr">-58.57%</td></tr>
+<tr><td>FY25</td><td>2,389.44</td><td>3,411.02</td><td class="tr">-42.75%</td><td>211.47</td><td class="tr">-1,021.58</td><td class="tr">-42.75%</td></tr>
+<tr><td rowspan="4" class="cc">PayU India</td><td>FY22</td><td>2,355.37</td><td>2,229.54</td><td class="tg">+5.34%</td><td>290.12</td><td class="tg">125.83</td><td class="tg">5.34%</td></tr>
+<tr><td>FY23</td><td>3,081.95</td><td>3,076.97</td><td class="tg">+0.16%</td><td>434.41</td><td class="tg">4.98</td><td class="tg">0.16%</td></tr>
+<tr><td>FY24</td><td>3,421.61</td><td>3,694.48</td><td class="tr">-7.97%</td><td>410.53</td><td class="tr">-272.87</td><td class="tr">-7.97%</td></tr>
+<tr><td>FY25</td><td>3,979.88</td><td>7,547.68</td><td class="tr">-89.65%</td><td>374.97</td><td class="tr">-3,567.80</td><td class="tr">-89.65%</td></tr>
+<tr><td rowspan="5" class="cc">Infibeam<br>(CCAvenue)</td><td>FY22</td><td>1,200.57</td><td>1,130.71</td><td class="tg">+5.82%</td><td>63.46</td><td class="tg">69.86</td><td class="tg">5.82%</td></tr>
+<tr><td>FY23</td><td>1,851.13</td><td>1,715.63</td><td class="tg">+7.32%</td><td>80.20</td><td class="tg">135.50</td><td class="tg">7.32%</td></tr>
+<tr><td>FY24</td><td>2,980.20</td><td>2,828.15</td><td class="tg">+5.10%</td><td>94.06</td><td class="tg">152.05</td><td class="tg">5.10%</td></tr>
+<tr><td>FY25</td><td>3,774.62</td><td>3,614.61</td><td class="tg">+4.24%</td><td>77.05</td><td class="tg">160.01</td><td class="tg">4.24%</td></tr>
+<tr><td>FY26</td><td>7,728.32</td><td>7,574.84</td><td class="tg">+1.99%</td><td>61.39</td><td class="tg">153.48</td><td class="tg">1.99%</td></tr>
+<tr><td rowspan="3" class="cc">BillDesk</td><td>FY22</td><td>2,187.31</td><td>1,982.95</td><td class="tg">+9.34%</td><td>87.24</td><td class="tg">204.36</td><td class="tg">9.34%</td></tr>
+<tr><td>FY23</td><td>2,372.76</td><td>2,144.69</td><td class="tg">+9.61%</td><td>107.91</td><td class="tg">228.07</td><td class="tg">9.61%</td></tr>
+<tr><td>FY24</td><td>1,938.48</td><td>1,791.05</td><td class="tg">+7.61%</td><td>140.19</td><td class="tg">147.43</td><td class="tg">7.61%</td></tr>
+<tr><td rowspan="4" class="cc">Cashfree</td><td>FY22</td><td>350.24</td><td>353.24</td><td class="tr">-0.86%</td><td>95.65</td><td class="tr">-3.00</td><td class="tr">-0.86%</td></tr>
+<tr><td>FY23</td><td>616.58</td><td>749.70</td><td class="tr">-21.59%</td><td>198.25</td><td class="tr">-133.12</td><td class="tr">-21.59%</td></tr>
+<tr><td>FY24</td><td>641.46</td><td>777.43</td><td class="tr">-21.20%</td><td>243.35</td><td class="tr">-135.97</td><td class="tr">-21.20%</td></tr>
+<tr><td>FY25</td><td>636.75</td><td>791.48</td><td class="tr">-24.30%</td><td>239.82</td><td class="tr">-154.73</td><td class="tr">-24.30%</td></tr>
+</tbody></table>
+<div class="src">📌 <strong>Source:</strong> CMIE Prowess — Statutory MCA P&L (Income & Expenditure Summary) via Report API. Extracted 29-Sep-2026, user shanti_user232.</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 1 — DETAILED P&L                                              -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="p1" class="page">
+<h1>Detailed P&L Breakdown <small>Granular line-item data from CMIE Prowess statutory filings. All figures ₹ Crore.</small></h1>
+
+<h2 class="st">Razorpay Software Ltd.</h2>
+<table><tr><th>Line Item</th><th>FY20</th><th>FY21</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th></tr>
+<tr><td><strong>Total Income</strong></td><td><strong>519.72</strong></td><td><strong>844.67</strong></td><td><strong>1,485.67</strong></td><td><strong>2,281.38</strong></td><td><strong>2,239.90</strong></td><td><strong>2,389.44</strong></td></tr>
+<tr><td>&nbsp;&nbsp;Non-Financial Services</td><td>508.94</td><td>841.21</td><td>1,481.28</td><td>2,270.10</td><td>29.01</td><td>55.09</td></tr>
+<tr><td>&nbsp;&nbsp;Financial Services</td><td>10.35</td><td>1.59</td><td>3.09</td><td>8.92</td><td>152.33</td><td>126.12</td></tr>
+<tr><td>&nbsp;&nbsp;Prior Period / Extraordinary</td><td>0.29</td><td>1.19</td><td>1.07</td><td>1.62</td><td>2,058.51</td><td>2,206.14</td></tr>
+<tr><td><strong>Total Expenses</strong></td><td><strong>525.87</strong></td><td><strong>838.48</strong></td><td><strong>1,478.29</strong></td><td><strong>2,270.92</strong></td><td><strong>3,551.71</strong></td><td><strong>3,411.02</strong></td></tr>
+<tr><td>&nbsp;&nbsp;Operating Expenses</td><td>518.33</td><td>822.11</td><td>1,451.21</td><td>2,226.70</td><td>392.87</td><td>369.94</td></tr>
+<tr><td>&nbsp;&nbsp;Compensation to Employees</td><td>98.77</td><td>168.07</td><td>380.64</td><td>628.19</td><td>260.89</td><td>211.47</td></tr>
+<tr><td>&nbsp;&nbsp;Depreciation</td><td>9.30</td><td>18.22</td><td>25.29</td><td>40.64</td><td>41.59</td><td>44.87</td></tr>
+<tr><td>&nbsp;&nbsp;Prior Period / Extraordinary Exp.</td><td>—</td><td>—</td><td>1.07</td><td>—</td><td>3,096.88</td><td>2,953.79</td></tr>
+<tr><td>&nbsp;&nbsp;Tax Provision</td><td>—</td><td>—</td><td>1.79</td><td>3.58</td><td>13.97</td><td>726.27</td></tr>
+<tr><td><strong>PAT</strong></td><td class="tr"><strong>-6.15</strong></td><td class="tg"><strong>6.19</strong></td><td class="tg"><strong>7.38</strong></td><td class="tg"><strong>10.46</strong></td><td class="tr"><strong>-1,311.81</strong></td><td class="tr"><strong>-1,021.58</strong></td></tr>
+</table>
+<div class="mc-a"><h4>⚠️ FY24/FY25 Loss Context</h4><p>Losses are driven by <strong>non-recurring ESOP charges and reverse-flip tax liabilities</strong> (₹2,059 Cr + ₹2,206 Cr in extraordinary income/expense entries + ₹726 Cr one-time tax in FY25). The <strong>core payments EBITDA was positive</strong> in both years. Adjusted operating margin ≈ 2–3%.</p></div>
+
+<hr class="div">
+<h2 class="st">BillDesk (Indiaideas.Com Ltd.)</h2>
+<table><tr><th>Line Item</th><th>FY20</th><th>FY21</th><th>FY22</th><th>FY23</th><th>FY24</th></tr>
+<tr><td><strong>Total Income</strong></td><td><strong>1,438.86</strong></td><td><strong>1,933.00</strong></td><td><strong>2,187.31</strong></td><td><strong>2,372.76</strong></td><td><strong>1,938.48</strong></td></tr>
+<tr><td>&nbsp;&nbsp;Non-Financial Services</td><td>1,339.91</td><td>1,844.01</td><td>2,118.63</td><td>2,278.98</td><td>1,812.98</td></tr>
+<tr><td>&nbsp;&nbsp;Financial Services</td><td>52.56</td><td>86.83</td><td>68.67</td><td>93.52</td><td>124.97</td></tr>
+<tr><td>&nbsp;&nbsp;Employee Costs</td><td>61.15</td><td>64.79</td><td>87.24</td><td>107.91</td><td>140.19</td></tr>
+<tr><td>&nbsp;&nbsp;Depreciation</td><td>19.95</td><td>23.85</td><td>23.94</td><td>34.02</td><td>48.68</td></tr>
+<tr><td>&nbsp;&nbsp;Tax Provision</td><td>75.26</td><td>90.37</td><td>69.45</td><td>59.81</td><td>23.63</td></tr>
+<tr><td><strong>PAT</strong></td><td class="tg"><strong>231.52</strong></td><td class="tg"><strong>270.97</strong></td><td class="tg"><strong>204.36</strong></td><td class="tg"><strong>228.07</strong></td><td class="tg"><strong>147.43</strong></td></tr>
+</table>
+
+<hr class="div">
+<h2 class="st">PayU Payments Pvt. Ltd.</h2>
+<table><tr><th>Line Item</th><th>FY20</th><th>FY21</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th></tr>
+<tr><td><strong>Total Income</strong></td><td><strong>1,216.35</strong></td><td><strong>1,415.68</strong></td><td><strong>2,355.37</strong></td><td><strong>3,081.95</strong></td><td><strong>3,421.61</strong></td><td><strong>3,979.88</strong></td></tr>
+<tr><td>&nbsp;&nbsp;Employee Costs</td><td>151.55</td><td>247.56</td><td>290.12</td><td>434.41</td><td>410.53</td><td>374.97</td></tr>
+<tr><td>&nbsp;&nbsp;Financial Services Exp.</td><td>7.35</td><td>7.17</td><td>8.69</td><td>6.78</td><td>2,955.94</td><td>3,397.99</td></tr>
+<tr><td>&nbsp;&nbsp;Extraordinary Exp.</td><td>18.54</td><td>5.18</td><td>—</td><td>—</td><td>106.77</td><td>3,536.23</td></tr>
+<tr><td><strong>PAT</strong></td><td class="tr"><strong>-98.29</strong></td><td class="tr"><strong>-114.62</strong></td><td class="tg"><strong>125.83</strong></td><td class="tg"><strong>4.98</strong></td><td class="tr"><strong>-272.87</strong></td><td class="tr"><strong>-3,567.80</strong></td></tr>
+</table>
+<div class="mc-r"><h4>⚠️ PayU FY25: ₹3,536 Cr extraordinary charges</h4><p>Likely goodwill impairment/write-downs from PaySense and LazyPay acquisitions. Core gateway operations remained viable.</p></div>
+
+<hr class="div">
+<h2 class="st">Infibeam Avenues Ltd. (CCAvenue / AvenuesAI)</h2>
+<table><tr><th>Line Item</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th></tr>
+<tr><td><strong>Total Income</strong></td><td><strong>1,200.57</strong></td><td><strong>1,851.13</strong></td><td><strong>2,980.20</strong></td><td><strong>3,774.62</strong></td><td><strong>7,728.32</strong></td></tr>
+<tr><td>&nbsp;&nbsp;Employee Costs</td><td>63.46</td><td>80.20</td><td>94.06</td><td>77.05</td><td>61.39</td></tr>
+<tr><td>&nbsp;&nbsp;Other Op. Expenses</td><td>943.13</td><td>1,500.16</td><td>2,590.80</td><td>3,324.56</td><td>7,343.57</td></tr>
+<tr><td>&nbsp;&nbsp;Tax Provision</td><td>39.47</td><td>44.37</td><td>52.96</td><td>32.17</td><td>30.76</td></tr>
+<tr><td><strong>PAT</strong></td><td class="tg"><strong>69.86</strong></td><td class="tg"><strong>135.50</strong></td><td class="tg"><strong>152.05</strong></td><td class="tg"><strong>160.01</strong></td><td class="tg"><strong>153.48</strong></td></tr>
+</table>
+
+<hr class="div">
+<h2 class="st">Cashfree Payments India Pvt. Ltd.</h2>
+<table><tr><th>Line Item</th><th>FY20</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th></tr>
+<tr><td><strong>Total Income</strong></td><td><strong>100.76</strong></td><td><strong>350.24</strong></td><td><strong>616.58</strong></td><td><strong>641.46</strong></td><td><strong>636.75</strong></td></tr>
+<tr><td>&nbsp;&nbsp;Employee Costs</td><td>13.52</td><td>95.65</td><td>198.25</td><td>243.35</td><td>239.82</td></tr>
+<tr><td>&nbsp;&nbsp;Selling & Distribution</td><td>0.91</td><td>16.01</td><td>32.48</td><td>7.88</td><td>20.42</td></tr>
+<tr><td>&nbsp;&nbsp;Other Op. Expenses</td><td>—</td><td>228.41</td><td>475.61</td><td>460.84</td><td>454.90</td></tr>
+<tr><td><strong>PAT</strong></td><td class="tg"><strong>17.06</strong></td><td class="tr"><strong>-3.00</strong></td><td class="tr"><strong>-133.12</strong></td><td class="tr"><strong>-135.97</strong></td><td class="tr"><strong>-154.73</strong></td></tr>
+</table>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 1B — PRODUCT & CLASSIFICATION DATA                             -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="p1b" class="page">
+<h1>Product Revenue & CMIE Classification <small>Extracted from CMIE Prowess — Product Details & Company Classifications reports.</small></h1>
+
+<h2 class="st">CMIE Industry Classification</h2>
+<table><tr><th>Company</th><th>CMIE Main Product/Service</th><th>CMIE Industry Group</th><th>Ownership</th><th>Size Decile (Latest)</th></tr>
+<tr><td><strong>Razorpay</strong></td><td>Securities investment services</td><td>Other fund based financial services</td><td>Private (Indian)</td><td>Top Decile</td></tr>
+<tr><td><strong>BillDesk</strong></td><td>Non-financial services</td><td>Other miscellaneous services</td><td>Private (Indian)</td><td>Top Decile</td></tr>
+<tr><td><strong>PayU</strong></td><td>Non-financial services</td><td>Other miscellaneous services</td><td>Private (Indian)</td><td>Top Decile</td></tr>
+<tr><td><strong>Infibeam</strong></td><td>Non-financial services</td><td>Other miscellaneous services</td><td>Private (Indian)</td><td>Top Decile</td></tr>
+<tr><td><strong>Cashfree</strong></td><td>Non-financial services</td><td>Diversified non-financial services</td><td>Private (Indian)</td><td>Top Decile</td></tr>
+</table>
+
+<h2 class="st">Product-Level Revenue Breakdown (₹ Crore)</h2>
+<h3 class="sst">Razorpay — Revenue by Product</h3>
+<table><tr><th>Product</th><th>FY18</th><th>FY19</th><th>FY20</th><th>FY21</th><th>FY22</th><th>FY23</th></tr>
+<tr><td>Service (Payment Gateway)</td><td>68.41</td><td>142.32</td><td>389.87</td><td>682.24</td><td>1,481.19</td><td>2,267.72</td></tr>
+<tr><td>Software Development</td><td>0.50</td><td>10.50</td><td>21.65</td><td>50.72</td><td>119.07</td><td>158.97</td></tr>
+<tr><td>Interest / Treasury Income</td><td>1.91</td><td>2.31</td><td>4.22</td><td>2.78</td><td>2.48</td><td>4.77</td></tr>
+<tr><td>Profit on Sale of Investments</td><td>—</td><td>0.53</td><td>6.12</td><td>4.15</td><td>40.90</td><td>66.94</td></tr>
+</table>
+
+<h3 class="sst">BillDesk — Revenue by Product</h3>
+<table><tr><th>Product</th><th>Key Years</th><th>Revenue (₹ Cr)</th></tr>
+<tr><td>Services (Bill Processing & Settlement)</td><td>FY23</td><td>2,035.99</td></tr>
+<tr><td>Services</td><td>FY24</td><td>1,604.71</td></tr>
+<tr><td>Profit on Sale of Investments</td><td>FY23 / FY24</td><td>47.60 / 55.26</td></tr>
+<tr><td>Interest on FDs / Investments</td><td>FY23 / FY24</td><td>34.85 + 11.07 / 52.99 + 16.72</td></tr>
+</table>
+
+<h3 class="sst">PayU — Revenue by Product</h3>
+<table><tr><th>Product</th><th>FY18</th><th>FY19</th><th>FY20</th><th>FY21</th><th>FY22</th><th>FY23</th></tr>
+<tr><td>Payment Gateway</td><td>588.36</td><td>882.41</td><td>23.99</td><td>14.09</td><td>—</td><td>—</td></tr>
+<tr><td>Services (Reclassified)</td><td>—</td><td>1,177.15</td><td>1,378.25</td><td>2,099.43</td><td>—</td><td>2,974.01</td></tr>
+<tr><td>Setup & Integration Fees</td><td>—</td><td>—</td><td>—</td><td>—</td><td>14.82</td><td>19.10</td></tr>
+</table>
+
+<h3 class="sst">Infibeam (CCAvenue) — Revenue by Product</h3>
+<table><tr><th>Product</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th></tr>
+<tr><td>Software Dev., Maint. & Ancillary Services</td><td>1,167.48</td><td>1,787.29</td><td>2,961.22</td><td>3,546.35</td><td>7,584.68</td></tr>
+<tr><td>Interest on Bank Deposits</td><td>—</td><td>—</td><td>4.94</td><td>7.57</td><td>17.13</td></tr>
+</table>
+
+<h3 class="sst">Cashfree — Revenue by Product</h3>
+<table><tr><th>Product</th><th>FY19</th><th>FY20</th><th>FY22</th><th>FY23-24</th></tr>
+<tr><td>Services (Payouts & Collections)</td><td>27.74</td><td>99.55</td><td>227.33</td><td>—</td></tr>
+<tr><td>Commission Income</td><td>—</td><td>—</td><td>—</td><td>638.08 (FY24)</td></tr>
+<tr><td>Setup Fees</td><td>—</td><td>—</td><td>—</td><td>1.17 (FY24)</td></tr>
+</table>
+
+<h2 class="st">Employee Cost as % of Revenue (Efficiency Metric)</h2>
+<table><tr><th>Company</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th><th>Trend</th></tr>
+<tr><td>Razorpay</td><td>25.6%</td><td>27.5%</td><td>11.6%</td><td>8.8%</td><td class="tg">↓ Improving</td></tr>
+<tr><td>PayU</td><td>12.3%</td><td>14.1%</td><td>12.0%</td><td>9.4%</td><td class="tg">↓ Improving</td></tr>
+<tr><td>Infibeam</td><td>5.3%</td><td>4.3%</td><td>3.2%</td><td>2.0%</td><td class="tg">↓ Most Efficient</td></tr>
+<tr><td>BillDesk</td><td>4.0%</td><td>4.5%</td><td>7.2%</td><td>N/A</td><td class="tr">↑ Rising</td></tr>
+<tr><td>Cashfree</td><td>27.3%</td><td>32.1%</td><td>37.9%</td><td>37.7%</td><td class="tr">↑ Most Inefficient</td></tr>
+</table>
+<div class="src">📌 <strong>Source:</strong> CMIE Prowess — Company Classifications & Product Details reports. Employee cost ratios computed from statutory P&L filings.</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 2 — INDUSTRY DEFINITION                                        -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="p2" class="page">
+<h1>Step 1: Define the Industry</h1>
+<div class="mc-r"><h4>❌ Bad Definition</h4><p>"Digital payments" or "Fintech industry" — too broad, includes consumer wallets, PoS hardware, BNPL, insurance, etc.</p></div>
+<div class="mc-g"><h4>✅ Good Definition</h4><p><strong>The Indian B2B online payment aggregation and gateway industry,</strong> focused on providing digital checkout, routing, and settlement infrastructure for merchants and enterprises. Excludes offline PoS hardware, consumer-facing UPI wallet apps (PhonePe/GPay), traditional acquiring bank networks, and BNPL/lending products (analyzed separately as adjacent).</p></div>
+
+<h2 class="st">Boundary Justification</h2>
+<table><tr><th>Dimension</th><th>Included</th><th>Excluded</th></tr>
+<tr><td><strong>Product</strong></td><td>Payment gateways, aggregation APIs, merchant checkout, payouts, settlement</td><td>Offline PoS, ATMs, SWIFT rails, BNPL credit</td></tr>
+<tr><td><strong>Geography</strong></td><td>India (domestic operations)</td><td>International markets</td></tr>
+<tr><td><strong>Customer</strong></td><td>B2B — Merchants, enterprises, startups, platforms</td><td>B2C — Consumer UPI apps, wallets</td></tr>
+</table>
+
+<h2 class="st">Market Context & Scale</h2>
+<table><tr><th>Metric</th><th>Value</th><th>Source</th></tr>
+<tr><td>India Digital Payments Market (2025)</td><td><strong>USD 482 billion</strong></td><td>Straits Research</td></tr>
+<tr><td>Payments Industry Revenue Pool (2028 est.)</td><td><strong>USD 70 billion</strong> (11% CAGR)</td><td>BCG-NPCI Report</td></tr>
+<tr><td>UPI Transactions (CY2025)</td><td><strong>228.3 billion</strong> txns, ~₹300 lakh Cr</td><td>NPCI / PIB</td></tr>
+<tr><td>UPI Share of Retail Digital Payments</td><td><strong>85–90%</strong> (projected 91% by FY29)</td><td>PwC Payments Handbook</td></tr>
+<tr><td>P2M Share of UPI Volume</td><td><strong>58–63%</strong> (up from 38% in FY21)</td><td>PwC / NPCI</td></tr>
+<tr><td>Digital Txn Volume Forecast (FY29)</td><td><strong>481 billion</strong> txns (from 159B in FY24)</td><td>PwC</td></tr>
+</table>
+
+<h2 class="st">UPI Transaction Growth (FY22–FY25)</h2>
+<table><tr><th>FY</th><th>Volume (Billion)</th><th>Value (₹ Lakh Cr)</th><th>YoY Volume Growth</th></tr>
+<tr><td>FY22</td><td>45.97</td><td>84.17</td><td>+105.8%</td></tr>
+<tr><td>FY23</td><td>83.75</td><td>139.20</td><td>+82.2%</td></tr>
+<tr><td>FY24</td><td>131.16</td><td>199.90</td><td>+56.6%</td></tr>
+<tr><td>FY25</td><td>185.87</td><td>260.50</td><td>+41.7%</td></tr>
+</table>
+
+<div class="mc"><h4>🔑 Regulatory Game-Changer: End of Zero-MDR</h4>
+<p>Effective <strong>October 15, 2026</strong>, the RBI introduces a <strong>0.4% MDR on P2M UPI transactions above ₹2,000</strong> (capped at ₹300/txn for ≥₹75,000). Small merchants (≤₹1L/month) and all transactions ≤₹2,000 remain exempt. This ends six years of zero-MDR and creates a massive new revenue stream for payment aggregators.</p></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 3 — MAJOR PLAYERS                                              -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="p3" class="page">
+<h1>Step 2: Major Players & Market Share</h1>
+<p>Top 5 firms hold <strong>>75%</strong> of the formalized B2B online payment gateway market. Combined FY24 revenue: <strong>₹11,222 Cr</strong>.</p>
+
+<table><tr><th>#</th><th>Company</th><th>Legal Entity</th><th>FY24 Revenue</th><th>Share</th><th>FY22→24 CAGR</th><th>Profitability</th></tr>
+<tr><td>1</td><td><strong>PayU India</strong></td><td>Payu Payments Pvt. Ltd.</td><td>₹3,421.61 Cr</td><td class="tb">30.5%</td><td>+20.6%</td><td class="tr">Loss-making</td></tr>
+<tr><td>2</td><td><strong>Infibeam (CCAvenue)</strong></td><td>Infibeam Avenues Ltd.</td><td>₹2,980.20 Cr</td><td class="tb">26.6%</td><td>+57.5%</td><td class="tg">Profitable</td></tr>
+<tr><td>3</td><td><strong>Razorpay</strong></td><td>Razorpay Software Ltd.</td><td>₹2,239.90 Cr</td><td class="tb">20.0%</td><td>+22.7%</td><td class="ta">Adj. Positive*</td></tr>
+<tr><td>4</td><td><strong>BillDesk</strong></td><td>Indiaideas.Com Ltd.</td><td>₹1,938.48 Cr</td><td class="tb">17.3%</td><td>-5.9%</td><td class="tg">Profitable</td></tr>
+<tr><td>5</td><td><strong>Cashfree</strong></td><td>Cashfree Payments India Pvt. Ltd.</td><td>₹641.46 Cr</td><td class="tb">5.7%</td><td>+35.3%</td><td class="tr">Loss-making</td></tr>
+</table>
+<p><em>*Razorpay's core business is EBITDA-positive; reported losses from ESOP/reverse-flip items.</em></p>
+
+<h2 class="st">Revenue Scale — Full Trajectory</h2>
+<table><tr><th>Company</th><th>FY20</th><th>FY21</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th></tr>
+<tr><td><strong>PayU</strong></td><td>1,216</td><td>1,416</td><td>2,355</td><td>3,082</td><td>3,422</td><td>3,980</td><td>—</td></tr>
+<tr><td><strong>Infibeam</strong></td><td>596</td><td>587</td><td>1,201</td><td>1,851</td><td>2,980</td><td>3,775</td><td>7,728</td></tr>
+<tr><td><strong>Razorpay</strong></td><td>520</td><td>845</td><td>1,486</td><td>2,281</td><td>2,240</td><td>2,389</td><td>—</td></tr>
+<tr><td><strong>BillDesk</strong></td><td>1,439</td><td>1,933</td><td>2,187</td><td>2,373</td><td>1,938</td><td>—</td><td>—</td></tr>
+<tr><td><strong>Cashfree</strong></td><td>101</td><td>—</td><td>350</td><td>617</td><td>641</td><td>637</td><td>—</td></tr>
+</table>
+
+<h2 class="st">Key Scale Metrics</h2>
+<table><tr><th>Metric</th><th>Razorpay</th><th>PayU</th><th>BillDesk</th><th>Infibeam</th><th>Cashfree</th></tr>
+<tr><td>Merchants</td><td><strong>12M+</strong></td><td>~5M</td><td>20,000+ billers</td><td>~2M</td><td>300K+</td></tr>
+<tr><td>Annualized TPV</td><td><strong>$180B</strong></td><td>~$150B</td><td>~$120B</td><td>~$100B</td><td>~$80B</td></tr>
+<tr><td>Online PG Market Share</td><td><strong>~55%</strong></td><td>~20%</td><td>~10%</td><td>~8%</td><td>~5%</td></tr>
+<tr><td>Key Niche</td><td>Startups/SMEs</td><td>Enterprise/BNPL</td><td>B2G/Utilities</td><td>International</td><td>Payouts</td></tr>
+</table>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 4 — INDUSTRY PROFITABILITY                                     -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="p4" class="page">
+<h1>Step 3: Industry Profitability</h1>
+<p>Operating Margin = (Total Income − Total Expenses) ÷ Total Income. 3-year average (FY22–24) used to smooth one-off items.</p>
+
+<h2 class="st">Operating Margin by Company (FY22–FY25)</h2>
+<table><tr><th>Company</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th><th>3-Yr Avg</th></tr>
+<tr><td><strong>Razorpay</strong></td><td class="tg">+0.50%</td><td class="tg">+0.46%</td><td class="tr">-58.57%</td><td class="tr">-42.75%</td><td class="tr">-19.20%</td></tr>
+<tr><td><strong>PayU</strong></td><td class="tg">+5.34%</td><td class="tg">+0.16%</td><td class="tr">-7.97%</td><td class="tr">-89.65%</td><td class="tr">-0.82%</td></tr>
+<tr><td><strong>Infibeam</strong></td><td class="tg">+5.82%</td><td class="tg">+7.32%</td><td class="tg">+5.10%</td><td class="tg">+4.24%</td><td class="tg">+6.08%</td></tr>
+<tr><td><strong>BillDesk</strong></td><td class="tg">+9.34%</td><td class="tg">+9.61%</td><td class="tg">+7.61%</td><td>N/A</td><td class="tg">+8.85%</td></tr>
+<tr><td><strong>Cashfree</strong></td><td class="tr">-0.86%</td><td class="tr">-21.59%</td><td class="tr">-21.20%</td><td class="tr">-24.30%</td><td class="tr">-14.55%</td></tr>
+</table>
+
+<h2 class="st">FY24 Weighted Average Industry Margin</h2>
+<table><tr><th>Company</th><th>FY24 Revenue</th><th>Weight</th><th>Margin</th><th>Contribution</th></tr>
+<tr><td>PayU</td><td>3,421.61</td><td>30.49%</td><td>-7.97%</td><td>-2.43%</td></tr>
+<tr><td>Infibeam</td><td>2,980.20</td><td>26.56%</td><td>+5.10%</td><td>+1.35%</td></tr>
+<tr><td>Razorpay</td><td>2,239.90</td><td>19.96%</td><td>-58.57%</td><td>-11.69%</td></tr>
+<tr><td>BillDesk</td><td>1,938.48</td><td>17.27%</td><td>+7.61%</td><td>+1.31%</td></tr>
+<tr><td>Cashfree</td><td>641.46</td><td>5.72%</td><td>-21.20%</td><td>-1.21%</td></tr>
+<tr><td colspan="4"><strong>Weighted Average Industry Margin (FY24)</strong></td><td class="tr"><strong>-12.67%</strong></td></tr>
+</table>
+
+<div class="mc-r"><h4>Verdict: Structurally Unprofitable Industry (as of FY24)</h4><p>Only 2 of 5 players (BillDesk +7.6%, Infibeam +5.1%) are consistently profitable. <strong>Adjusted for one-time items</strong>, Razorpay's core business operates at ~2–3% adjusted margin, and the industry-wide adjusted margin is closer to <strong>+1–2%</strong>. Either way, this is a thin-margin business — until the 0.4% MDR kicks in Oct 2026.</p></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 5 — FIVE FORCES                                                -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="p5" class="page">
+<h1>Step 4: Porter's Five Forces Analysis</h1>
+
+<div class="moat"><h3>1. Competitive Rivalry <span class="badge br">EXTREMELY HIGH</span></h3>
+<p>Top 5 players process >80% of online volume. Gateway checkout is fully commoditized — enterprise take rates squeezed to <strong>10–25 bps</strong>. Razorpay, PayU, and Cashfree have collectively burned >₹5,000 Cr in cumulative losses fighting for market share. Orchestration layers like <strong>Juspay HyperSDK</strong> let merchants dynamically route across 3–4 gateways, intensifying price wars.</p></div>
+
+<div class="moat"><h3>2. Bargaining Power of Buyers <span class="badge br">VERY HIGH</span></h3>
+<p>Large merchants (Flipkart, Swiggy, Zomato, MakeMyTrip) negotiate blended rates down to near-cost. Standardized REST APIs make switching trivially easy for mid-market merchants. Multi-homing (using multiple gateways simultaneously) is standard practice.</p></div>
+
+<div class="moat"><h3>3. Bargaining Power of Suppliers <span class="badge br">VERY HIGH</span></h3>
+<p>Issuing/acquiring banks (HDFC, ICICI, SBI, Axis) capture <strong>70–80%</strong> of total card MDR as interchange. Visa/Mastercard dictate network fees. NPCI controls the UPI rulebook with zero pricing flexibility for aggregators. Payment gateways are squeezed between powerful suppliers and powerful buyers.</p></div>
+
+<div class="moat"><h3>4. Threat of Substitutes <span class="badge ba">MODERATE-HIGH</span></h3>
+<p>Direct UPI Intent and UPI AutoPay bypass card gateways entirely. Central Bank Digital Currency (CBDC / e₹) and Account Aggregator (AA) frameworks represent future substitutes. Large enterprises increasingly use direct host-to-host bank APIs for payouts, bypassing intermediary PGs entirely.</p></div>
+
+<div class="moat"><h3>5. Barriers to Entry <span class="badge bb">MODERATE-HIGH</span></h3>
+<p>Post-Sept 2025 RBI Master Direction: mandatory PA license with ₹15 Cr min net-worth (₹25 Cr by Year 3). SOC-2 Type II, PCI-DSS Level 1 certification, CERT-In audits, data localization required. New entrants need BIN sponsorships from tier-1 banks. RBI imposed 12–15 month moratoriums on Razorpay, Cashfree, PayU between 2022–2024. However, well-funded international players (Stripe, Adyen) could still enter.</p></div>
+
+<div class="mc"><h4>Five Forces → Profitability Link</h4><p><strong>Extremely High Rivalry + Very High Buyer Power + Very High Supplier Power</strong> = margins compressed to near-zero or negative. Only firms that reduce buyer power (via ecosystem lock-in like Razorpay) or avoid domestic rivalry (via international expansion like Infibeam) maintain profitability.</p></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 6 — COMPETITOR MOATS                                           -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="p6" class="page">
+<h1>Competitor Moats & Positioning</h1>
+
+<div class="moat"><h3>BillDesk <span class="badge bg">PAT: ₹147 Cr (FY24) | Margin: +7.6%</span></h3>
+<p><strong>Moat: Deep B2B/B2G Utility Entrenchment</strong></p>
+<p>Controls <strong>50–60% of all digital utility/bill payments</strong> in India. Connected to 20,000+ billers. Processes 4B+ transactions/year (₹10T+ TPV). Revenue from reliable per-bill fees, not volatile MDR. Holds dual BBPS licenses (BOU + COU).</p>
+<p><strong>Vulnerability:</strong> Revenue declined 18.3% in FY24 — legacy B2G base not growing. Losing startup/SME merchants to Razorpay and Cashfree.</p></div>
+
+<div class="moat"><h3>PayU India <span class="badge br">PAT: -₹3,568 Cr (FY25) | Largest by Revenue</span></h3>
+<p><strong>Moat: Global Capital (Prosus) + Embedded Lending (LazyPay)</strong></p>
+<p>Largest by revenue (₹3,980 Cr FY25). LazyPay disbursed <strong>$1.1B in annual loans (FY25)</strong> — 77% consumer BNPL, 23% merchant lending. Credit revenue grew 59.8% YoY to $171M. Payments aEBIT improved to -2% (from -8%).</p>
+<p><strong>Vulnerability:</strong> ₹3,536 Cr extraordinary charges (goodwill impairment). Credit loss ratios hit 5.8%. RBI embargo delayed new merchant onboarding 15 months.</p></div>
+
+<div class="moat"><h3>Infibeam / CCAvenue / AvenuesAI <span class="badge bg">PAT: ₹153 Cr (FY26) | Fastest Growth</span></h3>
+<p><strong>Moat: International Diversification + AI Pivot</strong></p>
+<p>Revenue surged 6.4x from ₹1,201 Cr (FY22) to ₹7,728 Cr (FY26). UAE TPV: <strong>AED 12B+ (~$3.3B)</strong>. Secured Saudi PTSP license (SAMA). Rebranded to AvenuesAI. Launched <strong>PayCentral.ai</strong> — India's first agentic payment platform. Revenue from "Software Dev & Ancillary" = ₹7,585 Cr in FY26.</p>
+<p><strong>Vulnerability:</strong> Margins compressing — from 7.3% (FY23) to 2.0% (FY26). Growth is buying market share at the cost of profitability.</p></div>
+
+<div class="moat"><h3>Cashfree Payments <span class="badge br">PAT: -₹155 Cr (FY25) | Payout Specialist</span></h3>
+<p><strong>Moat: Bulk Disbursements & API Payouts Specialization</strong></p>
+<p>Controls <strong>>50% of India's digital payout market</strong>. Handles 1–2M daily disbursements, 60,000+ payouts/minute at peak. TPV ~$80B. Serves Dream11, MPL, Swiggy, Zepto for instant withdrawals/settlements. FY26 revenue surged 52% to ₹967 Cr; reached monthly EBITDA-positive in Mar 2026.</p>
+<p><strong>Vulnerability:</strong> Employee costs = 37.7% of revenue (vs. Razorpay's 8.8%). Top-heavy cost structure. Revenue stagnated at ~₹637–641 Cr in FY24–25 before FY26 recovery.</p></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 7 — RAZORPAY STRATEGY & SCA                                    -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="p7" class="page">
+<h1>Razorpay: Strategy & Sustainable Competitive Advantage</h1>
+
+<h2 class="st">Positioning Matrix</h2>
+<table><tr><th></th><th>BillDesk</th><th>PayU</th><th>Infibeam</th><th>Cashfree</th><th>Razorpay</th></tr>
+<tr><td><strong>Target</strong></td><td>Govt, Utilities</td><td>Large Enterprise</td><td>Intl. + Retail</td><td>Payouts/Gig</td><td><strong>Startups → Scale-ups</strong></td></tr>
+<tr><td><strong>Pricing</strong></td><td>Stable, Premium</td><td>Volume Discounts</td><td>Competitive</td><td>Low-cost</td><td><strong>Premium, Product-led</strong></td></tr>
+<tr><td><strong>Revenue Model</strong></td><td>Txn fees</td><td>Fees + BNPL</td><td>Fees + Licensing</td><td>Payout fees</td><td><strong>Fees + SaaS + Lending</strong></td></tr>
+<tr><td><strong>Key Bet</strong></td><td>Status quo</td><td>Credit at Scale</td><td>Geography + AI</td><td>Disbursements</td><td><strong>Financial OS</strong></td></tr>
+</table>
+
+<h2 class="st">Strategy Evolution</h2>
+<ol>
+<li><strong>Phase 1 (2014–2019): Payment Gateway.</strong> Pure API-first checkout. Won the developer community with best-in-class docs and sandbox. Revenue grew from ₹5 Cr to ₹520 Cr.</li>
+<li><strong>Phase 2 (2020–2023): Platform Expansion.</strong> Launched RazorpayX (business banking for 45,000+ businesses), Razorpay Capital (working capital loans), corporate cards (up to ₹2 Cr unsecured lines via RBL/Yes Bank), and RazorpayX Payroll (40,000+ businesses). Revenue hit ₹2,281 Cr.</li>
+<li><strong>Phase 3 (2024–2026): IPO & Regulatory Maturity.</strong> Reverse-flipped to India. Secured RBI PA license (Jan 2026). Acquired Ezetap ($200M) for offline PoS (500K+ retail touchpoints). Acquired Curlec for SE Asia. Filed confidential IPO (June 2026) at $5–6B valuation. 12M+ merchants, $180B TPV.</li>
+</ol>
+
+<h2 class="st">Sources of Sustainable Competitive Advantage (SCA)</h2>
+<div class="mc-g"><h4>SCA #1: High Switching Costs via Ecosystem Lock-in</h4>
+<p>A merchant using the gateway alone can switch in a weekend. But a merchant using <strong>RazorpayX (banking) + Payroll + Corporate Cards + Capital</strong> is deeply embedded. Switching requires migrating banking infrastructure, payroll, credit relationships — a 3–6 month project with operational risk. This converts a commodity service into a sticky platform.</p></div>
+
+<div class="mc-g"><h4>SCA #2: Proprietary Transaction Data Flywheel</h4>
+<p>12M+ merchants and $180B TPV generate <strong>real-time visibility into merchant cash flows</strong>. This data is the raw material for credit underwriting (Razorpay Capital). No bank or NBFC matches this data advantage. Self-reinforcing: more merchants → more data → better credit → more merchants.</p></div>
+
+<div class="mc"><h4>SCA #3: Developer Community & Brand Trust</h4>
+<p>Razorpay's API documentation, sandbox, and DX are considered best-in-class. Engineering teams at early-stage startups default to Razorpay, creating a "grow with the customer" dynamic. As startups become unicorns, Razorpay scales with them — nearly impossible for competitors to dislodge retroactively.</p></div>
+
+<h2 class="st">Resource Leverage Assessment</h2>
+<table><tr><th>Resource</th><th>Leveraged?</th><th>Assessment</th></tr>
+<tr><td>12M+ Merchant Base</td><td class="tg">Yes</td><td>Cross-selling RazorpayX and Capital</td></tr>
+<tr><td>$180B TPV Data</td><td class="ta">Partially</td><td>Credit penetration still ~10% of eligible merchants</td></tr>
+<tr><td>Developer Brand</td><td class="tg">Yes</td><td>Organic startup acquisition with minimal CAC</td></tr>
+<tr><td>RBI PA License</td><td class="tg">Yes</td><td>Regulatory barrier now protects incumbents</td></tr>
+<tr><td>Ezetap (Offline PoS)</td><td class="ta">Partially</td><td>500K touchpoints but omnichannel strategy still maturing</td></tr>
+<tr><td>Banking Partnerships</td><td class="ta">Partially</td><td>RBL, Yes Bank, Axis, ICICI — but dependent on partners</td></tr>
+</table>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 8 — RECOMMENDATION & PROJECTIONS                               -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="p8" class="page">
+<h1>Strategic Recommendation & Projections</h1>
+
+<h2 class="st">Is the Current Strategy Appropriate?</h2>
+<p><strong>Yes — and the timing is now structurally favorable.</strong> Two critical developments validate Razorpay's long-term bet:</p>
+<ol>
+<li><strong>End of Zero-MDR (Oct 15, 2026):</strong> 0.4% MDR on P2M UPI >₹2,000 creates a direct revenue stream for the first time in six years. With ~$180B TPV, even partial conversion = ₹800–1,200 Cr in new annual revenue.</li>
+<li><strong>IPO Filing (June 2026):</strong> Confidential DRHP filed with SEBI. $500–600M raise targeted. The market demands a clear profitability path — the combination of MDR revenue + lending margins provides that narrative.</li>
+</ol>
+
+<h2 class="st">Maximum-Impact Recommendation</h2>
+<div class="mc-g"><h4>🎯 Accelerate Razorpay Capital Penetration + Capture the MDR Revenue Windfall</h4>
+<p><strong>Problem:</strong> Despite 12M+ merchants, Razorpay Capital has penetrated only ~10% of eligible merchants. Core gateway is zero-margin under old regime.</p>
+<p><strong>Actions:</strong></p>
+<ol>
+<li><strong>Lending Acceleration:</strong> Pre-approve and proactively offer working capital loans to the top 20% of merchants (by TPV). Target 25% penetration by FY28.</li>
+<li><strong>MDR Monetization:</strong> Capture the 0.4% UPI MDR on high-ticket P2M volumes. Partial-year FY27 estimate: ₹800 Cr; full-year FY28: ₹1,100 Cr.</li>
+<li><strong>SaaS Upsell:</strong> Bundle RazorpayX Payroll + Corporate Cards into tiered subscription plans. Shift revenue from pure transaction fees to recurring SaaS.</li>
+</ol></div>
+
+<h2 class="st">Quantitative Projections (₹ Crore)</h2>
+<table class="dh"><tr><th>Metric</th><th>FY25 (Actual)</th><th>FY26 (Est.)</th><th>FY27 (Proj.)</th><th>FY28 (Proj.)</th><th>FY29 (Proj.)</th></tr>
+<tr><td><strong>Total Revenue</strong></td><td>2,389</td><td>3,200</td><td>4,500</td><td>5,800</td><td>7,200</td></tr>
+<tr><td>&nbsp;&nbsp;Gateway Fees</td><td>~2,100</td><td>2,300</td><td>2,600</td><td>2,900</td><td>3,200</td></tr>
+<tr><td>&nbsp;&nbsp;New UPI MDR Revenue</td><td>0</td><td>200*</td><td>800</td><td>1,100</td><td>1,400</td></tr>
+<tr><td>&nbsp;&nbsp;Lending (Capital)</td><td>~150</td><td>400</td><td>700</td><td>1,200</td><td>1,800</td></tr>
+<tr><td>&nbsp;&nbsp;SaaS / Subscriptions</td><td>~50</td><td>150</td><td>250</td><td>400</td><td>600</td></tr>
+<tr><td>&nbsp;&nbsp;Other</td><td>~89</td><td>150</td><td>150</td><td>200</td><td>200</td></tr>
+<tr><td><strong>Total Expenses (Adj.)</strong></td><td>~2,450†</td><td>3,000</td><td>4,100</td><td>5,100</td><td>6,100</td></tr>
+<tr><td><strong>Adj. Operating Margin</strong></td><td class="tr">~-2.5%†</td><td class="tg">+6.3%</td><td class="tg">+8.9%</td><td class="tg">+12.1%</td><td class="tg">+15.3%</td></tr>
+<tr><td><strong>Adj. Operating Profit</strong></td><td class="tr">-60†</td><td class="tg">200</td><td class="tg">400</td><td class="tg">700</td><td class="tg">1,100</td></tr>
+</table>
+<p style="font-size:.85rem;color:#64748b"><em>*MDR begins Oct 15, 2026 (partial year). †FY25 adjusted — excludes ₹2,206 Cr extraordinary items and ₹726 Cr one-time tax.</em></p>
+
+<h2 class="st">Revenue Mix Transformation</h2>
+<div class="chart-box-wide"><canvas id="cMix"></canvas></div>
+
+<h2 class="st">Key Assumptions & Risks</h2>
+<table><tr><th>Assumption</th><th>Basis</th><th>Risk</th></tr>
+<tr><td>0.4% MDR implemented Oct 2026</td><td>RBI Master Direction Sep '25; SC declined stay</td><td>Political reversal under election pressure</td></tr>
+<tr><td>Lending AUM reaches ₹5,000 Cr by FY28</td><td>Current run-rate + 10%→25% penetration</td><td>RBI tightens digital lending norms; NPA risk</td></tr>
+<tr><td>IPO at $5–6B in FY27</td><td>Confidential DRHP filed June 2026</td><td>Market downturn; fintech valuation compression</td></tr>
+<tr><td>Employee costs stay ~8–9% of revenue</td><td>FY25 actuals; post-flip optimization</td><td>Talent war; wage inflation</td></tr>
+</table>
+
+<div class="mc"><h4>Bottom Line for the Client</h4>
+<p>Razorpay's strategy is correct and the timing is now structurally favorable. The 0.4% MDR creates a <strong>₹1,200+ Cr annual revenue windfall</strong> that didn't exist before Oct 2026. Combined with accelerated lending (₹1,800 Cr by FY29) and SaaS (₹600 Cr by FY29), Razorpay transforms from a loss-making gateway into a <strong>₹7,200 Cr revenue, 15%+ margin fintech platform</strong> in 3 years. The single highest-impact action: <strong>triple Razorpay Capital penetration from 10% to 25%</strong> of eligible merchants, generating ₹1,800 Cr in high-margin lending revenue by FY29.</p></div>
+</div>
+
+</div><!-- /content -->
+
+<!-- ═══════════════════════ CHART.JS ═══════════════════════ -->
+<script>
+function go(id,el){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));document.getElementById(id).classList.add('active');el.classList.add('active')}
+const C={pu:'#3b82f6',inf:'#10b981',rz:'#f59e0b',bd:'#8b5cf6',cf:'#ef4444'};
+window.onload=function(){
+new Chart(document.getElementById('cPie'),{type:'doughnut',data:{labels:['PayU 30.5%','Infibeam 26.6%','Razorpay 20.0%','BillDesk 17.3%','Cashfree 5.7%'],datasets:[{data:[3422,2980,2240,1938,641],backgroundColor:[C.pu,C.inf,C.rz,C.bd,C.cf],borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:'FY24 Market Share (by Revenue)',font:{size:14}},legend:{position:'right',labels:{font:{size:10}}}}}});
+new Chart(document.getElementById('cRev'),{type:'line',data:{labels:['FY20','FY21','FY22','FY23','FY24','FY25'],datasets:[{label:'PayU',data:[1216,1416,2355,3082,3422,3980],borderColor:C.pu,tension:.3,fill:false,pointRadius:3},{label:'Infibeam',data:[596,587,1201,1851,2980,3775],borderColor:C.inf,tension:.3,fill:false,pointRadius:3},{label:'Razorpay',data:[520,845,1486,2281,2240,2389],borderColor:C.rz,tension:.3,fill:false,pointRadius:3},{label:'BillDesk',data:[1439,1933,2187,2373,1938,null],borderColor:C.bd,tension:.3,fill:false,pointRadius:3},{label:'Cashfree',data:[101,null,350,617,641,637],borderColor:C.cf,tension:.3,fill:false,pointRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:'Revenue Trend (₹ Crore)',font:{size:14}},legend:{position:'bottom',labels:{font:{size:10}}}},scales:{y:{beginAtZero:true}}}});
+new Chart(document.getElementById('cMar'),{type:'bar',data:{labels:['FY22','FY23','FY24','FY25'],datasets:[{label:'Razorpay',data:[.5,.46,-58.57,-42.75],backgroundColor:C.rz},{label:'PayU',data:[5.34,.16,-7.97,-89.65],backgroundColor:C.pu},{label:'Infibeam',data:[5.82,7.32,5.1,4.24],backgroundColor:C.inf},{label:'BillDesk',data:[9.34,9.61,7.61,null],backgroundColor:C.bd},{label:'Cashfree',data:[-.86,-21.59,-21.2,-24.3],backgroundColor:C.cf}]},options:{responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:'Operating Margin (%)',font:{size:14}},legend:{position:'bottom',labels:{font:{size:10}}}},scales:{y:{title:{display:true,text:'%'}}}}});
+new Chart(document.getElementById('cPAT'),{type:'bar',data:{labels:['Razorpay','PayU','Infibeam','BillDesk','Cashfree'],datasets:[{label:'FY22',data:[7.38,125.83,69.86,204.36,-3],backgroundColor:'rgba(59,130,246,.7)'},{label:'FY23',data:[10.46,4.98,135.5,228.07,-133.12],backgroundColor:'rgba(16,185,129,.7)'},{label:'FY24',data:[-1311.81,-272.87,152.05,147.43,-135.97],backgroundColor:'rgba(245,158,11,.7)'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:'PAT (₹ Cr) — FY22 to FY24',font:{size:14}},legend:{position:'bottom',labels:{font:{size:10}}}}}});
+new Chart(document.getElementById('cMix'),{type:'bar',data:{labels:['FY25','FY26','FY27','FY28','FY29'],datasets:[{label:'Gateway Fees',data:[2100,2300,2600,2900,3200],backgroundColor:'#94a3b8'},{label:'UPI MDR Revenue',data:[0,200,800,1100,1400],backgroundColor:'#38bdf8'},{label:'Lending (Capital)',data:[150,400,700,1200,1800],backgroundColor:'#10b981'},{label:'SaaS',data:[50,150,250,400,600],backgroundColor:'#f59e0b'},{label:'Other',data:[89,150,150,200,200],backgroundColor:'#e2e8f0'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:'Projected Revenue Mix Transformation (₹ Cr)',font:{size:14}},legend:{position:'bottom'}},scales:{x:{stacked:true},y:{stacked:true,title:{display:true,text:'₹ Crore'}}}}});
+};
+</script>
+</body>
+</html>
